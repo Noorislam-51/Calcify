@@ -1,7 +1,7 @@
 // Toggle menu visibility and adjust main container width
-let menu = document.querySelector(".menubutton");
-let menubar = document.querySelector(".menubar");
-let maincontainer = document.querySelector(".maincontainer");
+const menu = document.querySelector(".menubutton");
+const menubar = document.querySelector(".menubar");
+const maincontainer = document.querySelector(".maincontainer");
 menubar.style.display = 'none';
 
 menu.addEventListener('click', () => {
@@ -10,7 +10,7 @@ menu.addEventListener('click', () => {
     maincontainer.style.width = '80vw';
   } else {
     menubar.style.display = 'none';
-    maincontainer.style.width = '100vw';  
+    maincontainer.style.width = '100vw';
   }
 });
 
@@ -34,7 +34,6 @@ const swiper = new Swiper('.swiper-container', {
   allowTouchMove: false,
 });
 
-
 // Handle menu link clicks to change Swiper slide
 document.querySelectorAll('.menu-links a').forEach((link) => {
   link.addEventListener('click', (e) => {
@@ -45,85 +44,80 @@ document.querySelectorAll('.menu-links a').forEach((link) => {
 });
 
 // Update Swiper on window resize to prevent issues with slide positions
-
 window.addEventListener('resize', () => {
   swiper.update();
-  swiper.slideTo(currentSlideIndex);
 });
 
-
-
-//darkmode
-// Select the dark mode toggle button and the menu bar element
-const darkModeToggle = document.querySelector('.mode-button');
-const calcBtns = document.querySelectorAll('.btn'); // Use plural for multiple buttons
-const calcScreen = document.getElementById('screen');
+// Dark Mode Functionality
+const darkModeToggle = document.querySelector('.mode-buttons .mode-button');
+const highlightButton = document.querySelector('.mode-buttons .hightlight-button');
+const calcBtnsContainer = document.querySelectorAll('.btns');
+const calcScreens = document.querySelectorAll('.display input');
 const darkModeIcon = darkModeToggle.querySelector('i');
-const menuicon = document.querySelector('.menubutton i');
+const menuicon = document.querySelector('.navbar .menubutton i');
+const menulinks = document.querySelectorAll(".menu-links a");
+const currencyInput = document.querySelectorAll('#currencycalc input');
+const bmiInputs = document.querySelectorAll('#bmicalc input');
+const currencyHeading = document.querySelector('#currencycalc h1');
+const bmiHeading = document.querySelector('#bmicalc h1');
 
-
-let menulinks = document.querySelectorAll(".menu-links a");
-
-// Toggle dark mode for the menu bar when the mode button is clicked
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
 
-  // Toggle the icon based on the theme
-  if (document.body.classList.contains('dark-theme')) {
-    darkModeIcon.classList.remove('fa-moon'); // Remove the moon icon
-    darkModeIcon.classList.add('fa-sun');     // Add the sun icon 
-    calcScreen.style.background = 'linear-gradient(315deg, #2d3436 0%, #000000 74%)';
-    menulinks.forEach(link => {
-      link.style.color = 'white';
-    });
-    
-   
+  const isDarkMode = document.body.classList.contains('dark-theme');
 
-
-    // Change the background color of all buttons to blue
-    calcBtns.forEach(btn => {
-      btn.style.background = 'linear-gradient(315deg, #2d3436 0%, #000000 74%)';
-      btn.style.color = 'white';
-    });
-    
+  // Toggle highlight button visibility
+  if (isDarkMode) {
+    highlightButton.style.display = 'inline-block'; // Show the button
   } else {
-    darkModeIcon.classList.remove('fa-sun');  // Remove the sun icon
-    darkModeIcon.classList.add('fa-moon');     // Add the moon icon
-    calcScreen.style.background = 'white';
-    menulinks.forEach(link => {
-      link.style.color = 'black ';
-    });
-
-
-    // Change the background color of all buttons to white
-    calcBtns.forEach(btn => {
-      btn.style.background = 'white';
-      btn.style.color = 'black';
-    });
-
+    highlightButton.style.display = 'none'; // Hide the button
   }
+
+  // Toggle icons based on the theme
+  darkModeIcon.classList.toggle('fa-sun', isDarkMode);
+  darkModeIcon.classList.toggle('fa-moon', !isDarkMode);
+
+  // Change styles for dark/light mode
+  const screensBackground = isDarkMode ? 'linear-gradient(315deg, #2d3436 0%, #000000 74%)' : 'white';
+  const screensColor = isDarkMode ? 'white' : 'black';
+  const headingColor = isDarkMode ? 'white' : 'black';
+
+  // Update calculator screens and buttons
+  [...calcScreens, ...currencyInput, ...bmiInputs].forEach(input => {
+    input.style.background = screensBackground;
+    input.style.color = screensColor;
+  });
+
+  // Update calculator buttons
+  calcBtnsContainer.forEach(container => {
+    container.querySelectorAll('button').forEach(btn => {
+      btn.style.background = screensBackground;
+      btn.style.color = screensColor;
+    });
+  });
+
+  // Update headings
+  currencyHeading.style.color = headingColor;
+  bmiHeading.style.color = headingColor;
+
+  // Update menu links and icons
+  menulinks.forEach(link => {
+    link.style.color = screensColor;
+  });
+  menuicon.style.color = screensColor;
 });
 
-// basic calc
-
+// Highlight button logic
 // Basic Calculator Functions
-var basicScreen = document.querySelector('#basiccalc .box #screen');
-var basicBtns = document.querySelectorAll('#basiccalc .box .btn');
+const basicScreen = document.querySelector('#basiccalc .box #screen');
+const basicBtns = document.querySelectorAll('#basiccalc .box .btn');
 
-// Event Listener for Basic Calculator Buttons
-for (let btn of basicBtns) {
+basicBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    let btntext = e.target.innerText;
-
-    if (btntext === '×') {
-      btntext = '*';
-    }
-    if (btntext === '÷') {
-      btntext = '/';
-    }
+    let btntext = e.target.innerText === '×' ? '*' : e.target.innerText === '÷' ? '/' : e.target.innerText;
     basicScreen.value += btntext;
   });
-}
+});
 
 function basicBackspace() {
   basicScreen.value = basicScreen.value.slice(0, -1);
@@ -131,112 +125,63 @@ function basicBackspace() {
 
 function basicEvaluateExpression() {
   try {
-    let expression = basicScreen.value.replace(/×/g, '*').replace(/÷/g, '/');
+    const expression = basicScreen.value.replace(/×/g, '*').replace(/÷/g, '/');
     basicScreen.value = eval(expression);
-  } catch (error) {
+  } catch {
     basicScreen.value = 'Error';
   }
 }
 
 // Advanced Calculator Functions
-var advancedScreen = document.querySelector('#advancecalc .box #screen');
-var advancedBtns = document.querySelectorAll('#advancecalc .box .btn');
+const advancedScreen = document.querySelector('#advancecalc .box #screen');
+const advancedBtns = document.querySelectorAll('#advancecalc .box .btn');
 
-// Event Listener for Advanced Calculator Buttons
-for (let btn of advancedBtns) {
+advancedBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    let btntext = e.target.innerText;
-
-    if (btntext === '×') {
-      btntext = '*';
-    }
-    if (btntext === '÷') {
-      btntext = '/';
-    }
+    let btntext = e.target.innerText === '×' ? '*' : e.target.innerText === '÷' ? '/' : e.target.innerText;
     advancedScreen.value += btntext;
   });
-}
+});
 
-function sin() {
-  advancedScreen.value = Math.sin(advancedScreen.value);
-}
-
-function cos() {
-  advancedScreen.value = Math.cos(advancedScreen.value);
-}
-
-function tan() {
-  advancedScreen.value = Math.tan(advancedScreen.value);
-}
-
-function pow() {
-  advancedScreen.value = Math.pow(advancedScreen.value, 2);
-}
-
-function sqrt() {
-  advancedScreen.value = Math.sqrt(advancedScreen.value);
-}
-
-function log() {
-  advancedScreen.value = Math.log(advancedScreen.value);
-}
-
-function pi() {
-  advancedScreen.value = Math.PI;
-}
-
-function e() {
-  advancedScreen.value = Math.E;
-}
-
-function fact() {
-  let num = parseInt(advancedScreen.value, 10);
-  let f = 1;
-  for (let i = 1; i <= num; i++) {
-    f *= i;
-  }
-  advancedScreen.value = f;
-}
+const advancedFunctions = {
+  sin: () => { advancedScreen.value = Math.sin(advancedScreen.value); },
+  cos: () => { advancedScreen.value = Math.cos(advancedScreen.value); },
+  tan: () => { advancedScreen.value = Math.tan(advancedScreen.value); },
+  pow: () => { advancedScreen.value = Math.pow(advancedScreen.value, 2); },
+  sqrt: () => { advancedScreen.value = Math.sqrt(advancedScreen.value); },
+  log: () => { advancedScreen.value = Math.log(advancedScreen.value); },
+  pi: () => { advancedScreen.value = Math.PI; },
+  e: () => { advancedScreen.value = Math.E; },
+  fact: () => {
+    const num = parseInt(advancedScreen.value, 10);
+    advancedScreen.value = Array.from({ length: num }, (_, i) => i + 1).reduce((f, val) => f * val, 1);
+  },
+};
 
 function advancedBackspace() {
   advancedScreen.value = advancedScreen.value.slice(0, -1);
 }
 
-
-// bmi calulator
-document.addEventListener('DOMContentLoaded', function () {
-  // Select the form element and result display elements
+// BMI Calculator
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('bmi-form');
   const bmiValueElement = document.getElementById('bmi-value');
   const bmiCategoryElement = document.getElementById('bmi-category');
 
-  // Function to calculate BMI
   function calculateBMI(weight, height) {
-    // Convert height from cm to meters
-    height = height / 100;
-    // Calculate BMI
-    const bmi = weight / (height * height);
-    return bmi.toFixed(1); // Return BMI rounded to 1 decimal place
+    return (weight / ((height / 100) ** 2)).toFixed(1);
   }
 
-  // Function to determine BMI category
   function getBMICategory(bmi) {
-    if (bmi < 18.5) {
-      return 'Underweight';
-    } else if (bmi >= 18.5 && bmi < 24.9) {
-      return 'Normal weight';
-    } else if (bmi >= 25 && bmi < 29.9) {
-      return 'Overweight';
-    } else {
-      return 'Obesity';
-    }
+    if (bmi < 18.5) return 'Underweight';
+    if (bmi < 24.9) return 'Normal weight';
+    if (bmi < 29.9) return 'Overweight';
+    return 'Obesity';
   }
 
-  // Handle form submission
-  form.addEventListener('submit', function (event) {
+  form.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevent default form submission
 
-    // Get values from form inputs
     const weight = parseFloat(document.getElementById('weight').value);
     const height = parseFloat(document.getElementById('height').value);
 
@@ -245,30 +190,23 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Calculate BMI and get category
     const bmi = calculateBMI(weight, height);
     const category = getBMICategory(bmi);
 
-    // Display the results
     bmiValueElement.textContent = `Your BMI is ${bmi}`;
     bmiCategoryElement.textContent = `Category: ${category}`;
   });
 });
 
-
-// currency calulator
-
-// Fixed exchange rates relative to USD
+// Currency Calculator
 const exchangeRates = {
   USD: 1,
   EUR: 0.93,
   GBP: 0.82,
   JPY: 144.41,
-  INR: 83.15 // Example rate for INR relative to USD
-  // Add more currencies and their rates as needed
+  INR: 83.15, // Example rate for INR relative to USD
 };
 
-// Function to convert currency based on user input
 function convertCurrency() {
   const amount = parseFloat(document.getElementById('amount').value);
   const fromCurrency = document.getElementById('from-currency').value;
@@ -279,7 +217,6 @@ function convertCurrency() {
     return;
   }
 
-  // Perform conversion using fixed exchange rates
   const fromRate = exchangeRates[fromCurrency];
   const toRate = exchangeRates[toCurrency];
 

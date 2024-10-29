@@ -191,8 +191,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 90vh;
-  width: 100vw;
-  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+  width: 100vw; 
+   background: linear-gradient(135.8deg, rgb(26, 26, 29) 27.1%, rgb(111, 34, 50) 77.5%);
 
 }
 
@@ -248,7 +248,6 @@ body {
   font-size: xx-large;
 }
 #basiccalc #ac,#advcalc #ac{
-  background-color: #4CAF50;
   color: white;
 }
 #basiccalc #ac:hover, #advcalc #ac:hover{
@@ -319,7 +318,8 @@ button#zero {
   align-items: center;
   height: 90vh;
   width: 100vw;
-  background: linear-gradient(135.8deg, rgb(26, 26, 29) 27.1%, rgb(111, 34, 50) 77.5%);
+  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+
 }
 
 #advancecalc .box {

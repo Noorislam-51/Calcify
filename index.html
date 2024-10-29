@@ -15,15 +15,15 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <button class="menubutton">
+    <button class="menubutton" id="modebutt">
       <i class="fas fa-bars"></i>
     </button>
     <div class="logo">
       <img src="./image/lo-go.png" alt="Logo">
     </div>
-    <div class="mode-buttons">
+    <div class="mode-buttons" id="modebutt">
       <button class="mode-button"><i class="fas fa-moon"></i></button>
-      <button class="hightlight-button"><i class="fa-solid fa-power-off"></i></i></button>
+      <button class="hightlight-button" style="display: none;" ><i class="fa-solid fa-power-off"></i></i></button>
     </div>
   </nav>
 
@@ -48,7 +48,7 @@
           <div id="basiccalc" class="swiper-slide">
             <div class="box">
               <div class="display">
-                <input id="screen" type="text" placeholder="0" readonly>
+                <input id="screen"  type="text" placeholder="0" readonly>
                 <button id="ce" onclick="basicBackspace()"><i class="fa-solid fa-delete-left"></i></button>
               </div>
 
