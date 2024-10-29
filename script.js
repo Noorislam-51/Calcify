@@ -76,7 +76,6 @@ darkModeToggle.addEventListener('click', () => {
     menulinks.forEach(link => {
       link.style.color = 'white';
     });
-    menuicons.style.color='white';
     
    
 
@@ -95,7 +94,6 @@ darkModeToggle.addEventListener('click', () => {
       link.style.color = 'black ';
     });
 
-    menuicons.style.color='black';
 
     // Change the background color of all buttons to white
     calcBtns.forEach(btn => {
