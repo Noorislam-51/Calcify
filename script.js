@@ -67,11 +67,7 @@ darkModeToggle.addEventListener('click', () => {
   const isDarkMode = document.body.classList.contains('dark-theme');
 
   // Toggle highlight button visibility
-  if (isDarkMode) {
-    highlightButton.style.display = 'inline-block'; // Show the button
-  } else {
-    highlightButton.style.display = 'none'; // Hide the button
-  }
+  highlightButton.style.display = isDarkMode ? 'inline-block' : 'none';
 
   // Toggle icons based on the theme
   darkModeIcon.classList.toggle('fa-sun', isDarkMode);
@@ -114,7 +110,7 @@ const basicBtns = document.querySelectorAll('#basiccalc .box .btn');
 
 basicBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    let btntext = e.target.innerText === '×' ? '*' : e.target.innerText === '÷' ? '/' : e.target.innerText;
+    const btntext = { '×': '*', '÷': '/' }[e.target.innerText] || e.target.innerText; // Simplified if-else
     basicScreen.value += btntext;
   });
 });
@@ -138,7 +134,7 @@ const advancedBtns = document.querySelectorAll('#advancecalc .box .btn');
 
 advancedBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    let btntext = e.target.innerText === '×' ? '*' : e.target.innerText === '÷' ? '/' : e.target.innerText;
+    const btntext = { '×': '*', '÷': '/' }[e.target.innerText] || e.target.innerText; // Simplified if-else
     advancedScreen.value += btntext;
   });
 });

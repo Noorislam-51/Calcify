@@ -85,10 +85,6 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.container {
-  display: flex;
-  height: 90vh;
-}
 
 
 .menubar {
@@ -99,16 +95,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
   transition: left 0.3s ease;
   justify-content: center;
 }
 
-.menubar:hover {
-  width: 100vw;
-}
+  .menubar:hover {
+    width: 100vw;
+  }
 
 .menu-links {
   list-style: none;
@@ -151,9 +146,14 @@ body {
   background-color: #555;
   color: #eee;
 }
+.container {
+  display: flex;
+  height: 90vh;
+}
+
 .maincontainer {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
 
 .swiper-container {
@@ -174,7 +174,7 @@ body {
   position: absolute;
   bottom: 10px;
   text-align: center;
-  width: 100vh;
+  /* width: 100vh; */
 }
 
 .swiper-pagination-bullet {
@@ -191,7 +191,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 90vh;
-  width: 100vw; 
    background: linear-gradient(135.8deg, rgb(26, 26, 29) 27.1%, rgb(111, 34, 50) 77.5%);
 
 }
@@ -298,18 +297,6 @@ button#zero {
   min-width: 40%;
 }
 
-/* 
-@media (max-width: 600px) {
-  #basiccalc #screen {
-    font-size: 3vw;
-    padding: 0.8vw;
-  }
-
-  .row button {
-    padding: 1.2vw;
-    font-size: 1.2vw;
-  }
-} */
 
 
 #advancecalc {
@@ -436,7 +423,7 @@ button#zero {
 
 #currencycalc .box h1 {
   font-size: 5vh;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -589,8 +576,8 @@ button#zero {
 /* Button styling */
 #bmi-form button {
   padding: 10px;
-  background-color: #0c0d0c;
-  color: #fff;
+  background-color: #101012;
+  color: #f3f1f1;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -621,4 +608,129 @@ button#zero {
 
 #bmicalc #bmi-category {
   font-size: 1.2em;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 15vh;
+    padding: 0 0.5rem;
+  }
+
+  .menubutton i {
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    height: 6vh;
+  }
+
+  .mode-button, .hightlight-button {
+    height: 4vh;
+    width: 4vh;
+    font-size: 1.2rem;
+  }
+
+  .menubar {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .menu-links a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  #basiccalc .box, #advancecalc .box {
+    width: 90%;
+    max-height: 80%;
+  }
+
+  #basiccalc #screen, #advancecalc #screen {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .row button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  #currencycalc .box {
+    width: 80vw;
+    height: auto;
+  }
+
+  #currencycalc .currency-converter #amount {
+    width: 80%;
+  }
+
+  #currencycalc button {
+    width: 80%;
+    font-size: 0.9em;
+  }
+
+  .swiper-pagination {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 12vh;
+    padding: 0 0.2rem;
+  }
+
+  .menubutton i {
+    font-size: 1rem;
+  }
+
+  .logo img {
+    height: 5vh;
+  }
+
+  .mode-button, .hightlight-button {
+    height: 3.5vh;
+    width: 3.5vh;
+    font-size: 1rem;
+  }
+
+  .menu-links a {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  #basiccalc .box, #advancecalc .box {
+    width: 100%;
+    max-height: 75%;
+  }
+
+  #basiccalc #screen, #advancecalc #screen {
+    font-size: 1.2rem;
+    padding: 0.4rem;
+  }
+
+  .row button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  #currencycalc .box {
+    width: 90vw;
+  }
+
+  #currencycalc .currency-converter #amount {
+    width: 90%;
+  }
+
+  #currencycalc button {
+    width: 90%;
+    font-size: 0.8em;
+  }
+
+  .swiper-pagination {
+    font-size: 0.7rem;
+  }
 }
