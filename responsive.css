@@ -1,0 +1,130 @@
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .navbar {
+    height: 15vh;
+    padding: 0 0.5rem;
+  }
+
+  .logo {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 6vh;
+  }
+
+  .mode-buttons {
+    right: 0.5rem;
+  }
+
+  .menubutton i {
+    font-size: 1.2rem;
+  }
+
+  /* Container and swiper */
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    font-size: 1.2rem;
+  }
+
+  /* Calculator adjustments */
+  #basiccalc,
+  #advancecalc,
+  #currencycalc,
+  #bmicalc {
+    height: auto;
+    padding: 1rem;
+  }
+
+  #basiccalc .box,
+  #advancecalc .box {
+    width: 50%;
+    height: 50vh;
+    max-height: none;
+  }
+  #bmi-form {
+    width: 100%;
+    margin-top: 20px;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+}
+
+  #currencycalc .box,
+  #bmicalc .box {
+    width: 50%;
+    height: auto;
+    max-height: 45vh; /* Reduced max height */
+  }
+
+  #basiccalc .display,
+  #advancecalc .display {
+    height: 8vh; /* Decreased height */
+    padding: 0.8rem; /* Adjust padding slightly */
+  }
+
+  .row button {
+    padding: 0.6rem; /* Adjust button padding */
+    font-size: 0.9rem; /* Slightly smaller font */
+  }
+
+  button#eval {
+    font-size: 1.3rem; /* Reduced font size for eval button */
+  }
+
+  /* Currency & BMI calculator adjustments */
+  #currencycalc .currency-converter input,
+  #currencycalc .currency-converter select,
+  #currencycalc .currency-converter button {
+    width: 85%; /* Slightly smaller width */
+  }
+
+  #currencycalc button,
+  #bmicalc button {
+    width: 75%; /* Reduced width */
+  }
+
+  /* Reduce font size in BMI form */
+  #bmi-form input {
+    width: 75%; /* Adjusted width */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  /* Corrected .currency-converter inputbox styling */
+  .currency-converter .inputbox {
+    display: flex; /* Ensures flex behavior */
+    flex-direction: row; /* Aligns items in a row */
+    gap: 0.5rem; /* Adds spacing between items */
+  }
+
+  #bmi-form button {
+    width: 75%; /* Adjusted button width */
+  }
+
+  /* Adjust padding and layout in small screens */
+  #currencycalc,
+  #bmicalc {
+    padding: 0;
+  }
+
+  #currencycalc .box h1,
+  #bmicalc .box h1 {
+    font-size: 3.5vh; /* Reduced font size for headings */
+  }
+
+  #currencycalc .currency-converter {
+    width: 100%;
+  }
+
+  .inputbox {
+    flex-direction: column;
+  }
+}
