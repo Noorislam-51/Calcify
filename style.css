@@ -197,129 +197,106 @@ body {
 
 
 
-/* Basic Calculator Box Styling */
 #basiccalc .box {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 20px;
   width: 40%;
   max-height: 80%;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Display Section */
 #basiccalc .display {
   padding: 1vw;
-  background-color: #1e1e2f; /* Darker display background */
-  color: #00e0ff; /* Bright text color for contrast */
+  background-color: #333;
+  color: #fff;
   display: flex;
+  border-radius: 20px 20px 0px 0px;
   align-items: center;
   height: 12vh;
-  border-radius: 20px 20px 0 0;
-  border-bottom: 2px solid #00e0ff;
-  gap: 10px;
+
+  border-bottom: 1px solid white;
+  gap: 5px;
 }
 
 #basiccalc #screen {
-  padding: 1vw;
+  padding: 1.5vw;
   font-size: 2.5vw;
   border: none;
   background-color: #fff;
   color: #333;
   text-align: right;
-  height: 70%;
-  border-radius: 10px;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  border-radius: 5px 0px 0px 5px;
+  box-sizing: border-box;
   width: calc(100% - 5vw);
-  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Clear Button */
 #basiccalc #ce {
-  background-color:#009688;
+  background-color: #f44336;
   color: white;
   height: 100%;
   padding: 1vw;
+  flex-shrink: 0;
   border: none;
   cursor: pointer;
-  
-  border-radius: 10px;
-  /* border-radius: 0 5px 5px 0; */
-  flex-shrink: 0;
-  transition: background-color 0.3s;
-}
-
-#basiccalc #ce:hover {
-  background-color: #1dbeaedf;
-  transform: scale(1.05);
+  border-radius: 0px 5px 5px 0px;
 }
 
 #basiccalc #ce i {
   font-size: xx-large;
 }
-
-/* AC Button Styling */
-#basiccalc #ac,
-#advcalc #ac {
+#basiccalc #ac,#advcalc #ac{
   color: white;
-  background-color: #ff8000; /* Vibrant orange for the AC button */
-  transition: background-color 0.3s;
+}
+#basiccalc #ac:hover, #advcalc #ac:hover{
+  background-color: #388E3C;
 }
 
-#basiccalc #ac:hover,
-#advcalc #ac:hover {
-  background-color: #e66900;
+#basiccalc #ce:hover {
+  background-color: #d32f2f;
 }
 
-/* Buttons Section */
 .btns {
   padding: 1.5vw;
 }
 
 .row {
   display: flex;
-  gap: 10px; /* More space between buttons */
-  margin-bottom: 10px; /* Vertical spacing between rows */
 }
 
 .row button {
-  border: 1px solid #ddd;
-  background-color: #e6f7ff; /* Light blue button background */
+  border: 1px solid #ccc;
+  background-color: #eee;
   padding: 1vw;
   font-size: 1.5vw;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, color 0.3s;
   flex: 1;
   border-radius: 10px;
-  color: #00334d; /* Darker text for contrast */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin: 3px;
+
 }
 
 .row button:hover {
-  background-color: #b3e0ff; /* Brighter blue on hover */
-  transform: scale(1.05); /* Slight scaling effect */
+  background-color: #ddd;
 }
 
-/* Special Buttons */
 button#eval {
-  background-color: #00c853; /* Vibrant green for "Evaluate" */
+  background-color: #4CAF50;
   color: white;
   grid-column: span 2;
-  transition: background-color 0.3s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button#eval:hover {
-  background-color: #009624; /* Darker green on hover */
+  background-color: #388E3C;
 }
 
 button#zero {
   flex: 2;
   min-width: 40%;
-  background-color: #e6f7ff; /* Matches the other buttons */
 }
+
 
 
 #advancecalc {
@@ -329,129 +306,74 @@ button#zero {
   height: 90vh;
   width: 100vw;
   background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+
 }
 
-/* Advanced Calculator Box Styling */
 #advancecalc .box {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 20px;
-  width: 40%;
+  width: 50%;
   max-height: 80%;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Display Section */
 #advancecalc .display {
   padding: 1vw;
-  background-color: #1e1e2f; /* Darker display background */
-  color: #00e0ff; /* Bright text color for contrast */
+  background-color: #333;
+  color: #fff;
   display: flex;
+  border-radius: 20px 20px 0px 0px;
   align-items: center;
   height: 12vh;
-  border-radius: 20px 20px 0 0;
-  border-bottom: 2px solid #00e0ff;
-  gap: 10px;
+  border-bottom: 1px solid white;
+  gap: 5px;
 }
 
 #advancecalc #screen {
-  padding: 1vw;
+  padding: 1.5vw;
   font-size: 2.5vw;
   border: none;
   background-color: #fff;
   color: #333;
   text-align: right;
-  height: 70%;
-  border-radius: 10px;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  transition: background-color 0.3s, color 0.3s;
+  height: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%
 }
 
-/* Clear Button */
 #advancecalc #ce {
-  background-color: #009688;
+  background-color: #f44336;
   color: white;
-  height: 100%;
   padding: 1vw;
+  flex-shrink: 0;
   border: none;
   cursor: pointer;
-  border-radius: 10px;
-  flex-shrink: 0;
-  transition: background-color 0.3s, transform 0.2s;
-}
+  border-radius: 5px;
 
-#advancecalc #ce:hover {
-  background-color: #1dbeaedf;
-  transform: scale(1.05);
 }
 
 #advancecalc #ce i {
   font-size: xx-large;
 }
 
-/* AC Button Styling */
-#advancecalc #ac {
-  color: white;
-  background-color: #ff8000; /* Vibrant orange for the AC button */
-  transition: background-color 0.3s;
-}
-
-#advancecalc #ac:hover {
-  background-color: #e66900;
-}
-
-/* Buttons Section */
-#advancecalc .btns {
-  padding: 1.5vw;
-}
-
-#advancecalc .row {
-  display: flex;
-  gap: 10px; /* More space between buttons */
-  margin-bottom: 10px; /* Vertical spacing between rows */
-}
-
-#advancecalc .row button {
-  border: 1px solid #ddd;
-  background-color: #e6f7ff; /* Light blue button background */
-  padding: 1vw;
-  font-size: 1.5vw;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.2s;
-  flex: 1;
-  border-radius: 10px;
-  color: #00334d; /* Darker text for contrast */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-#advancecalc .row button:hover {
-  background-color: #b3e0ff; /* Brighter blue on hover */
-  transform: scale(1.05); /* Slight scaling effect */
-}
-
-/* Special Buttons */
-#advancecalc button#eval {
-  background-color: #00c853; /* Vibrant green for "Evaluate" */
-  color: white;
-  grid-column: span 2;
-  transition: background-color 0.3s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-#advancecalc button#eval:hover {
-  background-color: #009624; /* Darker green on hover */
-}
-
-#advancecalc button#zero {
-  flex: 2;
-  min-width: 40%;
-  background-color: #e6f7ff; /* Matches the other buttons */
+#advancecalc #ce:hover {
+  background-color: #d32f2f;
 }
 
 
+/* @media (max-width: 600px) {
+  #advancecalc #screen {
+    font-size: 3vw;
+    padding: 0.8vw;
+  }
+
+  .row button {
+    padding: 1.2vw;
+    font-size: 1.2vw;
+  }
+} */
 
 /* bmi calculator */
 /* General swiper-slide styling */
@@ -501,7 +423,7 @@ button#zero {
 
 #currencycalc .box h1 {
   font-size: 5vh;
-  color: rgb(252, 252, 252);
+  color: rgb(255, 255, 255);
   text-align: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -553,27 +475,24 @@ button#zero {
 
 #currencycalc button {
   
-  padding: 12px 20px;
+  padding: 10px;
   background-color: #101012;
-  color: #f3f1f1;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 1.1em;
-  margin-top: 80px;
-  width: 40%;
+  font-size: 1em;
+  margin-top: 40px;
+  width: 40%; /* Button width */
   display: flex;
   justify-content: center;
-  margin-left: 19px;
-  align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 2rem;
+  align-items: center; /* Center the button content */
 }
 
 #currencycalc button:hover {
   background-color: #303233;
-  transform: scale(1.05);
 }
-
 
 #currencycalc #result {
   margin-top: 20px;
@@ -642,51 +561,38 @@ button#zero {
 /* Label and input styling */
 #bmi-form label {
   display: block;
-  font-weight: bolder;
+  font-weight: bold;
   margin-bottom: 5px;
   color: white;
 }
 
 #bmi-form input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #b4b1b1;
+  padding: 8px;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  color: #333;
-  font-size: 1.5rem;
-  box-sizing: border-box;
 }
-
-#bmi-form input::placeholder {
-  color: black;
-}
-
 
 /* Button styling */
 #bmi-form button {
-  padding: 12px 20px;
+  padding: 10px;
   background-color: #101012;
   color: #f3f1f1;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: 1em;
   margin-top: 80px;
-  width: 40%;
+  width: 40%; /* Button width */
   display: flex;
   justify-content: center;
-  margin-left: 19px;
-  align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 19px; /* Center the button content */
+  align-items: center; /* Center the button content */
 }
 
 #bmi-form button:hover {
-  background-color: #303233;
-  transform: scale(1.05);
+  background-color: #252926;
 }
-
 
 /* Result styling */
 #bmicalc #result {
@@ -703,3 +609,6 @@ button#zero {
 #bmicalc #bmi-category {
   font-size: 1.2em;
 }
+
+
+
