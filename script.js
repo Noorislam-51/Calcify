@@ -60,7 +60,6 @@ const currencyInput = document.querySelectorAll('#currencycalc input');
 const bmiInputs = document.querySelectorAll('#bmicalc input');
 const currencyHeading = document.querySelector('#currencycalc h1');
 const bmiHeading = document.querySelector('#bmicalc h1');
-
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
 
@@ -73,10 +72,13 @@ darkModeToggle.addEventListener('click', () => {
   darkModeIcon.classList.toggle('fa-sun', isDarkMode);
   darkModeIcon.classList.toggle('fa-moon', !isDarkMode);
 
-  // Change styles for dark/light mode
-  const screensBackground = isDarkMode ? 'linear-gradient(315deg, #2d3436 0%, #000000 74%)' : 'white';
-  const screensColor = isDarkMode ? 'white' : 'black';
-  const headingColor = isDarkMode ? 'white' : 'black';
+  // Define theme-specific colors
+  const screensBackground = isDarkMode ? 'linear-gradient(315deg, #2d3436 0%, #000000 74%)' : '#ffffff';  // Dark background for dark mode
+  const screensColor = isDarkMode ? '#ffffff' : '#000000';  // White text for dark mode
+  const headingColor = isDarkMode ? '#ffffff' : 'rgb(252, 252, 252)';  // Heading color for light/dark mode
+  const inputBackground = isDarkMode ? '#333' : '#fff';  // Input background color for dark/light mode
+const inputColor = isDarkMode ? '#fff' : '#000';  // Input text color for dark/light mode
+
 
   // Update calculator screens and buttons
   [...calcScreens, ...currencyInput, ...bmiInputs].forEach(input => {
